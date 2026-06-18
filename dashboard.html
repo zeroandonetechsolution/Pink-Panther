@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOS Command Center - Pink Panther Edition</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #dc143c !important;
+        }
+        header {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="btn-pink logout-btn" id="logoutBtn">🚪 Logout</button>
+            <div class="logo-section">
+                <h1 class="logo">🎀 ZOS COMMAND CENTER 🎀</h1>
+                <p class="subtitle">Zero & One Tech Solution Pvt Ltd</p>
+            </div>
+        </header>
+
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="dashboard">🏠 Dashboard</button>
+            <button class="nav-btn" data-section="clients">👥 Clients</button>
+            <button class="nav-btn" data-section="leads">🎯 Leads</button>
+            <button class="nav-btn" data-section="projects">📂 Projects</button>
+            <button class="nav-btn" data-section="quotations">📜 Quotations</button>
+            <button class="nav-btn" data-section="payments">💰 Payments</button>
+            <button class="nav-btn" data-section="tasks">📋 Tasks</button>
+        </nav>
+
+        <main>
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <h2 class="section-title">📊 Founder's Dashboard</h2>
+                <div class="stats-grid" id="dashboardStats"></div>
+                <div class="dashboard-columns">
+                    <div class="column">
+                        <h3 class="column-title">📌 Today's Tasks</h3>
+                        <div id="todayTasks" class="list-container"></div>
+                    </div>
+                    <div class="column">
+                        <h3 class="column-title">⚠️ Urgent Alerts</h3>
+                        <div id="urgentAlerts" class="list-container"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clients Section -->
+            <section id="clients" class="section">
+                <h2 class="section-title">👥 Client Intelligence</h2>
+                <button class="btn-pink" onclick="showAddClientModal()">+ Add New Client</button>
+                <div id="clientsList" class="cards-grid"></div>
+            </section>
+
+            <!-- Leads Section -->
+            <section id="leads" class="section">
+                <h2 class="section-title">🎯 Lead Hunter</h2>
+                <button class="btn-pink" onclick="showAddLeadModal()">+ Add New Lead</button>
+                <div class="pipeline-container">
+                    <div class="pipeline-stage">
+                        <h4>New Lead</h4>
+                        <div id="leads-new" class="lead-list"></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <h4>Contacted</h4>
+                        <div id="leads-contacted" class="lead-list"></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <h4>Interested</h4>
+                        <div id="leads-interested" class="lead-list"></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <h4>Meeting</h4>
+                        <div id="leads-meeting" class="lead-list"></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <h4>Quotation</h4>
+                        <div id="leads-quotation" class="lead-list"></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <h4>Negotiation</h4>
+                        <div id="leads-negotiation" class="lead-list"></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <h4>Won</h4>
+                        <div id="leads-won" class="lead-list"></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <h4>Lost</h4>
+                        <div id="leads-lost" class="lead-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <h2 class="section-title">📂 Project War Room</h2>
+                <button class="btn-pink" onclick="showAddProjectModal()">+ Add New Project</button>
+                <div id="projectsList" class="cards-grid"></div>
+            </section>
+
+            <!-- Quotations Section -->
+            <section id="quotations" class="section">
+                <h2 class="section-title">📜 Quotation Vault</h2>
+                <button class="btn-pink" onclick="showAddQuotationModal()">+ Create New Quotation</button>
+                <div id="quotationsList" class="table-container"></div>
+            </section>
+
+            <!-- Payments Section -->
+            <section id="payments" class="section">
+                <h2 class="section-title">💰 Finance Center</h2>
+                <div class="finance-tabs">
+                    <button class="tab-btn active" data-tab="income">Income</button>
+                    <button class="tab-btn" data-tab="expenses">Expenses</button>
+                    <button class="tab-btn" data-tab="profit">Profit Dashboard</button>
+                </div>
+                <div id="financeContent"></div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section id="tasks" class="section">
+                <h2 class="section-title">📋 Task Management</h2>
+                <button class="btn-pink" onclick="showAddTaskModal()">+ Add New Task</button>
+                <div id="tasksList" class="cards-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

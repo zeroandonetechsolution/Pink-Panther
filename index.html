@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZOS Command Center - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .login-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 20px;
+            border: 4px solid #ff69b4;
+            text-align: center;
+        }
+        .video-container {
+            margin: 20px 0;
+            border: 3px dashed #ff69b4;
+            border-radius: 15px;
+            padding: 10px;
+            background: #fff0f5;
+        }
+        video, canvas {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .login-btn {
+            margin: 10px 5px;
+        }
+        .status-text {
+            margin: 15px 0;
+            color: #ff1493;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <h1 class="logo">🎀 ZOS COMMAND CENTER 🎀</h1>
+                <p class="subtitle">Secure Login Required</p>
+            </div>
+        </header>
+
+        <div class="login-container">
+            <h2 style="color: #ff1493; margin-bottom: 20px;">Boss Login</h2>
+            
+            <div class="form-group">
+                <label>Username (default: boss)</label>
+                <input type="text" id="username" value="boss" readonly>
+            </div>
+
+            <p style="color: #666; margin-bottom: 10px;">Password: Face Recognition</p>
+
+            <div class="video-container">
+                <video id="video" autoplay muted playsinline></video>
+                <canvas id="overlay" style="display: none;"></canvas>
+            </div>
+
+            <div class="status-text" id="status">Click "Register Face" first to set up your face password!</div>
+
+            <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                <button class="btn-pink login-btn" id="registerBtn">📷 Register My Face</button>
+                <button class="btn-pink login-btn" id="loginBtn" style="background: #32cd32;">🔐 Login with Face</button>
+                <button class="btn-pink login-btn" id="simpleLoginBtn" style="background: #1e90ff;">⚡ Simple Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load face-api.js from CDN -->
+    <script src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

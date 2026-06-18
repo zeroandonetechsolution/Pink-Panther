@@ -1,0 +1,14 @@
+{
+  "name": "zos-command-center",
+  "version": "1.0.0",
+  "description": "ZOS Command Center ERP with Pink Panther theme",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": ["erp", "dashboard", "zos"],
+  "author": "ZOS Team",
+  "license": "MIT"
+}
