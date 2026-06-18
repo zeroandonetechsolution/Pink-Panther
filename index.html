@@ -53,19 +53,25 @@
                 <input type="text" id="username" value="boss" readonly>
             </div>
 
-            <p style="color: #666; margin-bottom: 10px;">Password: Face Recognition</p>
+            <p style="color: #666; margin-bottom: 10px;">Password: Face Recognition (optional) or use Simple Login!</p>
 
-            <div class="video-container">
-                <video id="video" autoplay muted playsinline></video>
-                <canvas id="overlay" style="display: none;"></canvas>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
+                <button class="btn-pink login-btn" id="simpleLoginBtn" style="background: #1e90ff; font-size: 1.2rem; padding: 15px 30px;">⚡ Simple Login (Quick!)</button>
             </div>
 
-            <div class="status-text" id="status">Click "Register Face" first to set up your face password!</div>
+            <div style="border-top: 2px dashed #ff69b4; padding-top: 20px; margin-top: 10px;">
+                <h3 style="color: #ff1493; margin-bottom: 15px;">🎀 Optional: Face Recognition</h3>
+                <div class="video-container">
+                    <video id="video" autoplay muted playsinline></video>
+                    <canvas id="overlay" style="display: none;"></canvas>
+                </div>
 
-            <div style="display: flex; justify-content: center; flex-wrap: wrap;">
-                <button class="btn-pink login-btn" id="registerBtn">📷 Register My Face</button>
-                <button class="btn-pink login-btn" id="loginBtn" style="background: #32cd32;">🔐 Login with Face</button>
-                <button class="btn-pink login-btn" id="simpleLoginBtn" style="background: #1e90ff;">⚡ Simple Login</button>
+                <div class="status-text" id="status">Click "Register Face" first to set up your face password!</div>
+
+                <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                    <button class="btn-pink login-btn" id="registerBtn">📷 Register My Face</button>
+                    <button class="btn-pink login-btn" id="loginBtn" style="background: #32cd32;">🔐 Login with Face</button>
+                </div>
             </div>
         </div>
     </div>
