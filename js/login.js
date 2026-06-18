@@ -1,5 +1,5 @@
 // Face recognition configuration
-const MODEL_URL = 'https://unpkg.com/face-api.js@0.22.2/model/';
+const MODEL_URL = './models/';
 let faceMatcher = null;
 let labeledFaceDescriptors = [];
 let video = document.getElementById('video');
@@ -7,40 +7,21 @@ let overlay = document.getElementById('overlay');
 let status = document.getElementById('status');
 let isModelLoaded = false;
 
-// Load face-api.js models (only when needed)
+// Load face-api.js models from local files
 async function loadModels() {
-    status.textContent = 'Loading AI models... Please wait!';
+    status.textContent = '🎀 Loading Pink Panther AI models... Please wait!';
     try {
-        // Try to load models from multiple CDNs
-        const modelCDNs = [
-            'https://unpkg.com/face-api.js@0.22.2/model/',
-            'https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/model/'
-        ];
-        
-        let loaded = false;
-        for (const url of modelCDNs) {
-            try {
-                await Promise.all([
-                    faceapi.nets.tinyFaceDetector.loadFromUri(url),
-                    faceapi.nets.faceLandmark68Net.loadFromUri(url),
-                    faceapi.nets.faceRecognitionNet.loadFromUri(url)
-                ]);
-                isModelLoaded = true;
-                loaded = true;
-                status.textContent = '✅ Models loaded! Click "Register My Face" to get started!';
-                await startVideo();
-                break;
-            } catch (e) {
-                console.warn(`Failed to load from ${url}, trying next...`);
-            }
-        }
-        
-        if (!loaded) {
-            status.textContent = '⚠️ Face recognition models unavailable - use Simple Login!';
-        }
+        await Promise.all([
+            faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
+            faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
+            faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL)
+        ]);
+        isModelLoaded = true;
+        status.textContent = '✅ Models loaded! Click "Register My Face" to get started!';
+        await startVideo();
     } catch (error) {
-        status.textContent = '⚠️ Face recognition unavailable - use Simple Login!';
-        console.error(error);
+        status.textContent = '⚠️ Error loading models - check console for details';
+        console.error('Model loading error:', error);
     }
 }
 
