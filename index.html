@@ -60,16 +60,34 @@
             </div>
 
             <div style="border-top: 2px dashed #ff69b4; padding-top: 20px; margin-top: 10px;">
-                <h3 style="color: #ff1493; margin-bottom: 15px;">🎀 Optional: Face Recognition</h3>
+                <h3 style="color: #ff1493; margin-bottom: 15px;">🎀 AI Face Recognition Training</h3>
+                
+                <!-- Photo Upload Section -->
+                <div style="margin-bottom: 20px;">
+                    <h4 style="color: #ff1493; margin-bottom: 10px;">📸 Upload Your Photo Collection</h4>
+                    <input type="file" id="photoUpload" multiple accept="image/*" style="margin-bottom: 10px; display: block; width: 100%;">
+                    <p style="color: #666; font-size: 0.9rem;">Upload multiple photos of yourself (different angles work best!)</p>
+                </div>
+                
+                <!-- Photo Preview Grid -->
+                <div id="photoGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; margin-bottom: 20px;"></div>
+                
+                <!-- Training Controls -->
+                <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <button class="btn-pink login-btn" id="trainBtn" style="background: #32cd32;">🧠 Train AI with Photos</button>
+                    <button class="btn-pink login-btn" id="clearTrainingBtn" style="background: #dc143c;">🗑️ Clear Training Data</button>
+                </div>
+                
+                <!-- Live Camera -->
+                <h4 style="color: #ff1493; margin-bottom: 10px;">📹 Live Camera for Login</h4>
                 <div class="video-container">
                     <video id="video" autoplay muted playsinline></video>
                     <canvas id="overlay" style="display: none;"></canvas>
                 </div>
 
-                <div class="status-text" id="status">Click "Register Face" first to set up your face password!</div>
+                <div class="status-text" id="status">Upload photos first to train the AI!</div>
 
                 <div style="display: flex; justify-content: center; flex-wrap: wrap;">
-                    <button class="btn-pink login-btn" id="registerBtn">📷 Register My Face</button>
                     <button class="btn-pink login-btn" id="loginBtn" style="background: #32cd32;">🔐 Login with Face</button>
                 </div>
             </div>
